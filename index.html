@@ -1,42 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Snake &amp; Ladder</title>
-  <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-  <div class="app">
-    <div class="panel">
-      <h1>Snake &amp; Ladder</h1>
-
-      <div class="status">
-        <p class="turn" id="turn">Turn: Red</p>
-        <div class="dice-box">
-          <span>Dice</span>
-          <div class="dice" id="dice">-</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Royal Ladder</title>
+    <meta
+      name="description"
+      content="A premium Snake and Ladder game built with HTML, CSS, and JavaScript."
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar panel">
+        <div class="brand-wrap">
+          <div class="brand-mark">RL</div>
+          <div>
+            <p class="eyebrow">Classic Board Game</p>
+            <h1>Royal Ladder</h1>
+          </div>
         </div>
-      </div>
 
-      <div class="actions">
-        <button class="primary-btn" id="rollBtn">Roll Dice</button>
-        <button class="secondary-btn" id="newGameBtn">New Game</button>
-      </div>
+        <div class="scoreboard">
+          <div class="score-header">
+            <span>Players</span>
+            <button id="newGameBtn" class="ghost-btn">Reset</button>
+          </div>
 
-      <p class="message" id="message">Red starts the game.</p>
+          <div id="playerList" class="player-list"></div>
+        </div>
 
-      <div class="legend">
-        <span class="legend-item"><span class="legend-dot" style="background:#ef4444;"></span> Snake</span>
-        <span class="legend-item"><span class="legend-dot" style="background:#22c55e;"></span> Ladder</span>
-      </div>
+        <div class="panel-box">
+          <div class="panel-box__header">
+            <span>Status</span>
+          </div>
+          <div class="status-row">
+            <span>Current turn</span>
+            <strong id="turnBadge">Red</strong>
+          </div>
+          <div class="status-row">
+            <span>Dice</span>
+            <div class="dice-mini" id="diceMini">-</div>
+          </div>
+        </div>
+
+        <div class="panel-box rules-box">
+          <div class="panel-box__header">
+            <span>How to play</span>
+          </div>
+          <ul>
+            <li>Roll the dice to move.</li>
+            <li>Ladders move you forward.</li>
+            <li>Snakes move you backward.</li>
+            <li>Reach square 100 to win.</li>
+          </ul>
+        </div>
+      </aside>
+
+      <main class="board-panel panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow muted">Match control</p>
+            <h2>Game Board</h2>
+          </div>
+
+          <button id="rollBtn" class="primary-btn">Roll Dice</button>
+        </header>
+
+        <div class="board-utility">
+          <div class="dice-widget">
+            <span class="dice-label">Dice</span>
+            <div id="dice" class="dice">-</div>
+          </div>
+
+          <div class="message-box">
+            <span class="message-label">Game feed</span>
+            <p id="message">Red starts the game.</p>
+          </div>
+        </div>
+
+        <div id="board" class="board" aria-label="Snake and Ladder board"></div>
+      </main>
     </div>
 
-    <div class="board-wrap">
-      <div class="board" id="board"></div>
-    </div>
-  </div>
-
-  <script src="./script.js" defer></script>
-</body>
+    <script src="./script.js" defer></script>
+  </body>
 </html>
